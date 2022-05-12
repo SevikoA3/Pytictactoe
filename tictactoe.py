@@ -1,10 +1,10 @@
 import tkinter as tk
-from turtle import title
 
 window = tk.Tk()
 window.title("Tic Tac Toe")
 window.geometry("450x550")
 window.resizable(0, 0)
+window.iconbitmap("icon.ico")
 cells = {}
 buttons = {}
 xcell = {}
@@ -13,11 +13,13 @@ sign = True
 
 '''-------------------------------Functions for commands-------------------------------'''
 def clear() :
+    global sign
     for row in range(3) :
         for column in range(3) :
             buttons[row, column]['text'] = ""
     xcell.clear()
     ocell.clear()
+    sign = True
 
 def pop_up(result) :
     top = tk.Toplevel(window)
@@ -29,6 +31,7 @@ def pop_up(result) :
     label.place(anchor=tk.CENTER, relx=0.5, rely=0.4)
     button = tk.Button(top, text="OK", font=("Arial", 10), width=10, height=1, command=lambda : [top.destroy(), clear(), top.grab_release()])
     button.place(anchor=tk.CENTER, relx=0.5, rely=0.8)
+    top.protocol("WM_DELETE_WINDOW", lambda : [top.destroy(), top.grab_release(), clear()])
 
 def check_winner() :
     check1 = 0
