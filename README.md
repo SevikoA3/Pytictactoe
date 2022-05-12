@@ -1,2 +1,2 @@
 download link if u want to try the exe file :
-https://s.id/162sq
+https://s.id/162sR
