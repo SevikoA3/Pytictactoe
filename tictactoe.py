@@ -80,16 +80,15 @@ def on_click(row, column):
 
     check = (row, column)
     if check in xcell or check in ocell :
-        pass
-    else :
-        if sign == True :
-            buttons[(row, column)]['text'] = "X"
-            xcell[(row, column)] = buttons[(row, column)]
-            sign = not sign
-        elif sign == False :
-            buttons[(row, column)]['text'] = "O"
-            ocell[(row, column)] = buttons[(row, column)]
-            sign = not sign
+        return
+    if sign == True :
+        buttons[(row, column)]['text'] = "X"
+        xcell[(row, column)] = buttons[(row, column)]
+        sign = not sign
+    elif sign == False :
+        buttons[(row, column)]['text'] = "O"
+        ocell[(row, column)] = buttons[(row, column)]
+        sign = not sign
 
     winner = check_winner()
     if winner != None :
